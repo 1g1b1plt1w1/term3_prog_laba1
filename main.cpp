@@ -466,7 +466,7 @@ void make_change(const string& name, const vector<string>& data, Command command
                 break;
             }
             if (trees.count(name)) {
-                cout << "Tree " << name << ":" << Tree_read(trees[name]) << endl;
+                Tree_print(trees[name]);
                 break;
             }
 

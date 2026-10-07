@@ -160,3 +160,35 @@ string Tree_read(const Tree& tree) {
     if (!tree.root) return "";
     return Tree_read_node(tree.root);
 }
+
+void get_level_nodes(TreeNode* node, int target_depth, int current_depth, const string& path, stringstream& ss) {
+    if (!node) return;
+
+    if (current_depth == target_depth) {
+        ss << path << " = " << node->data << "\n";
+        return;
+    }
+
+    get_level_nodes(node->left, target_depth, current_depth + 1, path + "->left", ss);
+    get_level_nodes(node->right, target_depth, current_depth + 1, path + "->right", ss);
+}
+
+string Tree_print_node(TreeNode* node) {
+    if (!node) {
+        return "";
+    }
+
+    stringstream ss;
+
+    // Проходим уровень за уровнем: 0 (корень), 1, 2 ... до максимальной высоты
+    for (int d = 0; d < node->height; ++d) {
+        get_level_nodes(node, d, 0, "root", ss);
+    }
+
+    return ss.str();
+}
+
+void Tree_print(const Tree& tree) {
+    if (!tree.root) return;
+    cout << Tree_print_node(tree.root);
+}
