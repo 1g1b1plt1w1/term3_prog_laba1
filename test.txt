@@ -1,5 +1,3 @@
-Array asdfsafd
-Array m1 17 1 3
-OneLinkedList asd3 13 10 7
-LinkedList asd3 1 2 9 
+Tree t   1 2  4 6   7 19  219 
+Tree t1  17 34  123  150 
 

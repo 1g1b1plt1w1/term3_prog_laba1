@@ -180,7 +180,6 @@ string Tree_print_node(TreeNode* node) {
 
     stringstream ss;
 
-    // Проходим уровень за уровнем: 0 (корень), 1, 2 ... до максимальной высоты
     for (int d = 0; d < node->height; ++d) {
         get_level_nodes(node, d, 0, "root", ss);
     }
